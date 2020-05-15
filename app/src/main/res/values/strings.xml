@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">PastoraBus</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_main">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_stop">StopActivity</string>
+    <string name="title_activity_stop_activity">stop_activity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">PASTORABUS</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_stop">Paradas</string>
+    <string name="menu_bus">Ônibus</string>
+    <string name="menu_information">Informações</string>
+
+    <string name="praca_leao">Praça do leãp</string>
+    <string name="accar">AC car</string>
+    <string name="construtec">Construtec</string>
+    <string name="ufc">UFC</string>
+    <string name="ifce">IFCE</string>
+
+
+    <string name="home_second">Home Second</string>
+    <string name="title_activity_main2">Main2Activity</string>
+</resources>

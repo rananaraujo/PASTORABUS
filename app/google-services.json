@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "898712239513",
+    "firebase_url": "https://pastorabus-2cc1a.firebaseio.com",
+    "project_id": "pastorabus-2cc1a",
+    "storage_bucket": "pastorabus-2cc1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898712239513:android:4766d047bd1e6ea0ff6708",
+        "android_client_info": {
+          "package_name": "com.example.pastorabus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898712239513-0ga21n6ld6ds9u231p6lj0m1mk1uodv3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pastorabus",
+            "certificate_hash": "e6604f29bf27e1b9f8fc37f54ec184a143f6dd46"
+          }
+        },
+        {
+          "client_id": "898712239513-kf1gtovrduhh38eemkmrhqai213aam0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBty55L7RoJcXnly9ZEM1LIsf8uNaG7_8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898712239513-kf1gtovrduhh38eemkmrhqai213aam0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
