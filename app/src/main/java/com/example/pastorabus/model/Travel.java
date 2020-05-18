@@ -1,6 +1,8 @@
-package com.example.pastorabus;
+package com.example.pastorabus.model;
 
 import android.location.Location;
+
+import com.example.pastorabus.model.Bus;
 
 public class Travel {
     public long id_travel;

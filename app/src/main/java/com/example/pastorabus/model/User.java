@@ -1,4 +1,4 @@
-package com.example.pastorabus;
+package com.example.pastorabus.model;
 
 public class User {
     public long id_user;

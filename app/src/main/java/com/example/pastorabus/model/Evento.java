@@ -1,4 +1,7 @@
-package com.example.pastorabus;
+package com.example.pastorabus.model;
+
+import com.example.pastorabus.model.Stop;
+import com.example.pastorabus.model.User;
 
 public class Evento {
     public long evento_id;

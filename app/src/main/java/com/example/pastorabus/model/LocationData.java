@@ -1,27 +1,28 @@
-package com.example.pastorabus;
+package com.example.pastorabus.model;
 
-import android.location.Location;
+import java.util.Date;
 
-public class Stop {
-    public long stop_id;
+public class LocationData {
     public double latitude;
     public double longitude;
+    public long horario;
 
-    public Stop(long stop_id, double latitude, double longitude) {
-        this.stop_id = stop_id;
+    public LocationData(){
+
+    }
+    public LocationData(double latitude, double longitude, long horario) {
+        this.horario = horario;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public long getStop_id() {
-        return stop_id;
+    public long getHorario() {
+        return horario;
     }
 
-    public void setStop_id(long stop_id) {
-        this.stop_id = stop_id;
+    public void setHorario(long horario) {
+        this.horario = horario;
     }
-
-
     public double getLatitude() {
         return latitude;
     }

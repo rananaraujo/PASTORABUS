@@ -2,13 +2,14 @@ package com.example.pastorabus;
 
 import android.Manifest;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 
+import com.example.pastorabus.locationaddress.Constant;
+import com.example.pastorabus.model.LocationData;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.ResolvableApiException;
@@ -25,35 +26,25 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 
 import android.os.Handler;
 import android.os.ResultReceiver;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Map;
 
 public class ShareLocation extends AppCompatActivity implements OnMapReadyCallback  {
     FusedLocationProviderClient client;
@@ -213,14 +204,7 @@ public class ShareLocation extends AppCompatActivity implements OnMapReadyCallba
 
         client.requestLocationUpdates(locationRequest, locationCallback, null);
     }
-    private void startIntentService(Location location){
-        Intent intent = new Intent(this, FethcAddressSevices.class);
-        intent.putExtra(Constant.RECEIVER, resultReceiver);
-        intent.putExtra(Constant.LOCATION_DATA_EXTRA, location);
-        startService(intent);
 
-
-    }
     private class AddressResultReceiver extends ResultReceiver{
 
 

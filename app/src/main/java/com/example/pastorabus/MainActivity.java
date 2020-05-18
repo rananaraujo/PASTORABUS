@@ -19,24 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
-
-
     public void consult_bus(View view){
-        Log.d("MainActivy", "Clique Editar");
         Intent intent = new Intent(this, Stop_activity.class);
         startActivityForResult(intent, RESULT_EDIT);
     }
 
 
     public void share_location(View view){
-        Log.d("MainActivy", "Clique Editar");
-        Intent intent = new Intent(this, ShareLocation.class);
+        Intent intent = new Intent(this, Main3Activity.class);
         startActivityForResult(intent, RESULT_EDIT);
     }
-
 
 }

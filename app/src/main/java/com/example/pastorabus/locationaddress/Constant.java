@@ -1,4 +1,4 @@
-package com.example.pastorabus;
+package com.example.pastorabus.locationaddress;
 
 public class Constant {
 

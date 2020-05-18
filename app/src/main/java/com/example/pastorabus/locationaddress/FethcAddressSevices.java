@@ -1,4 +1,4 @@
-package com.example.pastorabus;
+package com.example.pastorabus.locationaddress;
 
 import android.app.IntentService;
 import android.content.Intent;
@@ -6,15 +6,11 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.os.ResultReceiver;
-import android.provider.SyncStateContract;
 import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
-
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
