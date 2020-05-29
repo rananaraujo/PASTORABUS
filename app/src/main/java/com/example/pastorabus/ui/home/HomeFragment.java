@@ -12,8 +12,6 @@ import com.example.pastorabus.R;
 
 public class HomeFragment extends AppCompatActivity {
 
-    private HomeViewModel homeViewModel;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

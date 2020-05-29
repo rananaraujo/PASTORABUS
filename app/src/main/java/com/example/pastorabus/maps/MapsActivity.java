@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,6 +14,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.FirebaseApp;
@@ -93,10 +95,7 @@ public class MapsActivity extends FragmentActivity   implements OnMapReadyCallba
               pesquisarLocalizacao();
             }
         }, delay, interval);
-
-
     }
-
 
     private void inicializarFireBase(){
         FirebaseApp.initializeApp(MapsActivity.this);
@@ -121,7 +120,7 @@ public class MapsActivity extends FragmentActivity   implements OnMapReadyCallba
                    }
 
                 for(int i = 0; i < locationDataList.size(); i++){
-                    if(locationDataList.get(i).horario <= new Date().getTime() && locationDataList.get(i).horario >= new Date().getTime() -300000000 ){
+                    if(locationDataList.get(i).horario >= new Date().getTime()  -60000 ){
                         locationDataListMed.add(locationDataList.get(i));
 
                     }
@@ -167,46 +166,42 @@ public class MapsActivity extends FragmentActivity   implements OnMapReadyCallba
 
                 int meio_lat = list_lat.size()/ 2;
                 int meio_long = list_long.size()/ 2;
-                Log.i("teste", meio_lat + "esse é o valor");
 
                 if(meio_lat % 2 == 0 && meio_long % 2 == 0){
                     lat  = ((list_lat.get(meio_lat) + list_lat.get(meio_lat + 1))/2);
                     longetude = ((list_long.get(meio_long) + list_long.get(meio_long + 1))/2);
 
-                    Log.i("teste", list_lat.get(meio_lat + 1) + "kkkkkkkkkkkkkkd");
-                    Log.i("teste", list_long.get(meio_lat) + "kkkkkkkkkkkkkkd");
-
                     LatLng origin = new LatLng(lat, longetude);
-                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui c " + lat + longetude));
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui " + latitude + longetude).icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_location)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 15));
 
                 }else if(meio_lat % 2 == 0 && meio_long % 2 != 0){
                     latitude  = ((list_lat.get(meio_lat) + list_lat.get(meio_lat + 1))/2);
                     longetude = list_long.get(meio_long);
-                    Log.i("teste", list_lat.get(meio_lat)+ "kkkkkkkkkkkkkke");
-                    Log.i("teste", list_long.get(meio_lat) + "kkkkkkkkkkkkkke");
+                    mMap.clear();
                     LatLng origin = new LatLng(latitude,longetude);
-                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui b " + latitude + longetude));
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui " + latitude + longetude).icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_location)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 15));
                     latitude = 0;
                     longetude = 0;
                 }else if (meio_lat % 2 != 0 && meio_long % 2 != 0){
                     latitude = list_lat.get(meio_lat);
                     longetude = list_long.get(meio_long);
-                    Log.i("teste", list_lat.get(meio_lat)+ "kkkkkkkkkkkkkkp");
-                    Log.i("teste", list_long.get(meio_lat) + "kkkkkkkkkkkkkkp");
                     LatLng origin = new LatLng(latitude,longetude);
-                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui a " + latitude + longetude));
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui " + latitude + longetude).icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_location)));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 15));
                     latitude = 0;
                     longetude = 0;
                 } else if(meio_lat % 2 != 0 && meio_long % 2 == 0){
                     latitude = list_lat.get(meio_lat);
                     longetude = ((list_long.get(meio_lat) + list_long.get(meio_lat + 1))/2);
-                    Log.i("teste", list_lat.get(meio_lat)+ "kkkkkkkkkkkkkkf");
-                    Log.i("teste", list_long.get(meio_lat) + "kkkkkkkkkkkkkkf");
                     LatLng origin = new LatLng(latitude,longetude);
-                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui " + latitude + longetude));
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions().position(origin).title("Estou aqui " + latitude + longetude).icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_location)));
+
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(origin, 15));
                     latitude = 0;
                     longetude = 0;
@@ -215,10 +210,7 @@ public class MapsActivity extends FragmentActivity   implements OnMapReadyCallba
 
                 list_lat.clear();
                 list_long.clear();
-
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 

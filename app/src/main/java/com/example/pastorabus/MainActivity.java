@@ -1,17 +1,27 @@
 package com.example.pastorabus;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     public static int RESULT_EDIT = 2;
+    public int CODIGO_PERMISSOES_REQUERIDAS;
+
+    String[] appPermisoes ={
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +38,27 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void share_location(View view){
-        Intent intent = new Intent(this, Main3Activity.class);
-        startActivityForResult(intent, RESULT_EDIT);
+        if(VerificarPermissoes()){
+            Intent intent = new Intent(this, ShareLocation.class);
+            startActivityForResult(intent, RESULT_EDIT);
+        }
+        }
+    public  boolean VerificarPermissoes() {
+        List<String> permissoesrequeridas = new ArrayList<>();
+
+        for (String permissao : appPermisoes) {
+            if (ContextCompat.checkSelfPermission(this, permissao) != PackageManager.PERMISSION_GRANTED) {
+
+                permissoesrequeridas.add(permissao);
+            }
+
+        }
+        if (!permissoesrequeridas.isEmpty()) {
+
+            ActivityCompat.requestPermissions(this, permissoesrequeridas.toArray(new String[permissoesrequeridas.size()]), CODIGO_PERMISSOES_REQUERIDAS);
+            return false;
+        }
+        return true;
     }
 
 }
