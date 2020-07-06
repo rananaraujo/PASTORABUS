@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.Menu;
 
 import com.example.pastorabus.maps.MapsActivity;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.PolygonOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,11 +28,12 @@ import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Stop_activity extends AppCompatActivity {
+public class Bus_activity extends AppCompatActivity {
     public static int RESULT_EDIT = 2;
     private double lat;
     private double lng;
     public int CODIGO_PERMISSOES_REQUERIDAS;
+
 
     String[] appPermisoes ={
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -40,34 +44,22 @@ public class Stop_activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_main4);
+        Toolbar toolbar = findViewById(R.id.toolbar2);
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout2);
+        NavigationView navigationView = findViewById(R.id.nav_view2);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setDrawerLayout(drawer)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment2);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        AlertDialog.Builder megBox = new AlertDialog.Builder(this);
-        megBox.setTitle("Aviso");
-        megBox.setMessage("É nescessário selecionar qual parada é a mais adequada para você esperar pelo transporte universitário clicando na imagem da parada");
-        megBox.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                return;
-
-            }
-        });
-        megBox.show();
-
     }
 
     @Override
@@ -79,12 +71,42 @@ public class Stop_activity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment2);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
 
 
+
+
+    public void consult_bus(View view){
+        Intent intent = new Intent(this, Stop_activity.class);
+        startActivityForResult(intent, RESULT_EDIT);
+    }
+
+    public void share_location(View view){
+        if(VerificarPermissoes()){
+            Intent intent = new Intent(this, ShareLocation.class);
+            startActivityForResult(intent, RESULT_EDIT);
+        }
+
+    }
+
+    public  boolean VerificarPermissoes() {
+        List<String> permissoesrequeridas = new ArrayList<>();
+
+        for (String permissao : appPermisoes) {
+            if (ContextCompat.checkSelfPermission(this, permissao) != PackageManager.PERMISSION_GRANTED) {
+
+                permissoesrequeridas.add(permissao);
+            }
+
+        }if (!permissoesrequeridas.isEmpty()) {
+            ActivityCompat.requestPermissions(this, permissoesrequeridas.toArray(new String[permissoesrequeridas.size()]), CODIGO_PERMISSOES_REQUERIDAS);
+            return false;
+        }
+        return true;
+    }
     public void showPracaLeao(View view) {
         lat = -4.970119;
         lng = -39.016044;
@@ -132,32 +154,4 @@ public class Stop_activity extends AppCompatActivity {
 
 
 
-    public void consult_bus(View view){
-        Intent intent = new Intent(this, Stop_activity.class);
-        startActivityForResult(intent, RESULT_EDIT);
-    }
-
-    public void share_location(View view){
-        if(VerificarPermissoes()){
-            Intent intent = new Intent(this, ShareLocation.class);
-            startActivityForResult(intent, RESULT_EDIT);
-        }
-
-    }
-
-    public  boolean VerificarPermissoes() {
-        List<String> permissoesrequeridas = new ArrayList<>();
-
-        for (String permissao : appPermisoes) {
-            if (ContextCompat.checkSelfPermission(this, permissao) != PackageManager.PERMISSION_GRANTED) {
-
-                permissoesrequeridas.add(permissao);
-            }
-
-        }if (!permissoesrequeridas.isEmpty()) {
-            ActivityCompat.requestPermissions(this, permissoesrequeridas.toArray(new String[permissoesrequeridas.size()]), CODIGO_PERMISSOES_REQUERIDAS);
-            return false;
-        }
-        return true;
-    }
 }

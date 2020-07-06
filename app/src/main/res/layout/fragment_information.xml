@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.slideshow.SlideshowFragment">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/pastora_foreground"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/descripition1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="1º Para ques serve o PASTORABUS?"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/decripition2"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        android:text="O app PatoraBus foi criando com o intuito de auxiliar os estudantes dos campis UFC e IFCE de Quixadá no uso do transporte universitário, fornecendo a localização em tempo real do ônibus universitário, itinerário da rota e informações sobre o ônibus"
+        android:textColor="#070707"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripition1" />
+
+
+    <TextView
+        android:id="@+id/decripition3"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        android:text="2º Como funciona PASTORABUS?"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decripition2" />
+
+    <TextView
+        android:id="@+id/decripition4"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="10dp"
+        android:text="O app utiliza a localização de quem está dentro do ônibus para fornecer, através do seu dispositivo móvel, a localização em tempo real do transporte universitário. Por isso, é de extrema importância para o bom funcionamento do aplicativo que a localização compartilhada do ônibus esteja dentro da rota que o ônibus faz o percusso."
+        android:textColor="#070707"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decripition3" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

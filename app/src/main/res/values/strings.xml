@@ -12,6 +12,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_stop">StopActivity</string>
     <string name="title_activity_stop_activity">stop_activity</string>
+    <string name="title_activity_bus_activity">bus_activity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">PASTORABUS</string>
@@ -22,6 +23,7 @@
     <string name="menu_stop">Paradas</string>
     <string name="menu_bus">Ônibus</string>
     <string name="menu_information">Informações</string>
+    <string name="menu_menu">Home</string>
     <string name="mapa">Mapa</string>
     <string name="praca_leao">Praça do leãp</string>
     <string name="accar">AC car</string>
@@ -33,8 +35,4 @@
     <string name="home_second">Home Second</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_main3">Main3Activity</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
 </resources>

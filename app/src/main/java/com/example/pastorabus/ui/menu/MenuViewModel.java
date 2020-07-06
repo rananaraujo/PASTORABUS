@@ -1,14 +1,16 @@
-package com.example.pastorabus.ui.mapa;
+package com.example.pastorabus.ui.menu;
+
+import android.view.Menu;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class MapaViewModel extends ViewModel {
+public class MenuViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public MapaViewModel() {
+    public MenuViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is home fragment");
 

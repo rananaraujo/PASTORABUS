@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.ACCESS_COARSE_LOCATION,
     };
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -42,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, ShareLocation.class);
             startActivityForResult(intent, RESULT_EDIT);
         }
+
         }
+
     public  boolean VerificarPermissoes() {
         List<String> permissoesrequeridas = new ArrayList<>();
 
@@ -52,9 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 permissoesrequeridas.add(permissao);
             }
 
-        }
-        if (!permissoesrequeridas.isEmpty()) {
-
+        }if (!permissoesrequeridas.isEmpty()) {
             ActivityCompat.requestPermissions(this, permissoesrequeridas.toArray(new String[permissoesrequeridas.size()]), CODIGO_PERMISSOES_REQUERIDAS);
             return false;
         }
